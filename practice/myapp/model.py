@@ -1,20 +1,10 @@
 import os
-
+import pickle
 
 class Model:
     def __init__(self):
         model_path = os.path.join('myapp', 'model.pkl')
-        # your code here
-
+        with open(model_path, 'rb') as file:
+            model = pickle.load(file)
     def predict(self, x):
-        '''
-        Parameters
-        ----------
-        x : np.ndarray
-            Входное изображение -- массив размера (28, 28)
-        Returns
-        -------
-        pred : str
-            Символ-предсказание 
-        '''
-        # your code here
+        return model.predict(x)
